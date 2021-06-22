@@ -30,18 +30,20 @@ const Users = () => {
   return (
     <div>
       <table className={classes.table}>
-        <tr>
-          <th>Name</th>
-          <th>Bio</th>
-          <th>Location</th>
-        </tr>
-        {usersData.map((user) => (
+        <tbody>
           <tr>
-            <td>{user.name}</td>
-            <td>{user.bio === null ? "Under construction" : user.bio} </td>
-            <td>{user.location}</td>
+            <th>Name</th>
+            <th>Bio</th>
+            <th>Location</th>
           </tr>
-        ))}
+          {usersData.map((user) => (
+            <tr key={user.name}>
+              <td>{user.name}</td>
+              <td>{user.bio === null ? "Under construction" : user.bio} </td>
+              <td>{user.location}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
