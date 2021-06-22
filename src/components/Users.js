@@ -8,7 +8,7 @@ const Users = () => {
   }, []);
 
   const _handleFetchCall = () => {
-    const users = ["aniruppat", "reddy-s"];
+    const users = ["aniruppat", "reddy-s", "sharansp"];
     users.forEach(async (user) => {
       try {
         let request = await fetch(`https://api.github.com/users/${user}`);
@@ -33,11 +33,13 @@ const Users = () => {
         <tr>
           <th>Name</th>
           <th>Bio</th>
+          <th>Location</th>
         </tr>
         {usersData.map((user) => (
           <tr>
             <td>{user.name}</td>
-            <td>{user.bio}</td>
+            <td>{user.bio === null ? "Under construction" : user.bio} </td>
+            <td>{user.location}</td>
           </tr>
         ))}
       </table>
